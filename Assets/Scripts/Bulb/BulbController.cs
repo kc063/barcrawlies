@@ -24,6 +24,7 @@ public class BulbController : MonoBehaviour
 
     public GameObject getPlayerSpew(int color)
     {
+        labels[color].GetComponent<ShowOnMenu>().setShow(true);
         return player_effects[color];
     }
 

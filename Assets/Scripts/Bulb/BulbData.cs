@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class BulbData : MonoBehaviour
 {
-    [SerializeField] public int b;
+    public int b;
     public BulbColor color;
     public BulbController bulb;
+    [SerializeField] public int onResetColor;
 
     void Start()
     {
+        b = onResetColor;
         color = bulb.getColor(b);
         Instantiate(bulb.getPlantSpew(color.Name), transform);
     }
@@ -29,5 +31,16 @@ public class BulbData : MonoBehaviour
             color = cc;
             b = color.Name;
         }
-    } 
+    }
+    
+    public void Refresh()
+    {
+        b = onResetColor;
+        color = bulb.getColor(b);
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        Instantiate(bulb.getPlantSpew(color.Name), transform);
+    }
 }

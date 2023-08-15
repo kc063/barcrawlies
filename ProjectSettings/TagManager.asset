@@ -6,6 +6,7 @@ TagManager:
   tags:
   - spew
   - pod
+  - freshie
   layers:
   - Default
   - TransparentFX

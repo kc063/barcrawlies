@@ -7,9 +7,9 @@ ScriptsOnlyBuild:
     - PauseControl
     - ShowOnMenu
     - Supercyan.AnimalPeopleSample.AccessoryWearLogic
+    - TetherSystem
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
-    - Cinemachine.CinemachineCollider
     - Cinemachine.CinemachineComposer
     - Cinemachine.CinemachineFreeLook
     - Cinemachine.CinemachineOrbitalTransposer
@@ -78,12 +78,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
     - UnityEngine.UI.SpriteState
-  methodsToPreserve:
-  - assembly: Assembly-CSharp
-    fullTypeName: PauseControl
-    methodName: PauseGame
+  methodsToPreserve: []
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/NineTerrain.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -105,8 +102,6 @@ ScriptsOnlyBuild:
     - Class: 49
       Script: {instanceID: 0}
     - Class: 54
-      Script: {instanceID: 0}
-    - Class: 64
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
@@ -132,8 +127,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 1620}
     - Class: 114
       Script: {instanceID: 1772}
-    - Class: 114
-      Script: {instanceID: 2060}
     - Class: 114
       Script: {instanceID: 2084}
     - Class: 114
@@ -174,6 +167,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 6220}
     - Class: 114
       Script: {instanceID: 7476}
+    - Class: 114
+      Script: {instanceID: 66396}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -663,7 +658,7 @@ ScriptsOnlyBuild:
     className: CinemachineGroupComposer
   - hash:
       serializedVersion: 2
-      Hash: d1cc09a9168add39543f279849131b69
+      Hash: ca2f1f43b468b4b822010549901e90ab
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: CharacterControl
@@ -777,7 +772,7 @@ ScriptsOnlyBuild:
     className: UnityOnCancelMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 956c2a3108578620778d40040ce31425
+      Hash: 10b4d04ceb0e29a2da580d577aab6d98
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PauseControl
@@ -855,7 +850,7 @@ ScriptsOnlyBuild:
     className: UnityOnBeginDragMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 751e5bae2a317288c2ab58d66687092b
+      Hash: 06411c7276457cabcacb231064eb67a1
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ShowOnMenu
@@ -1387,7 +1382,13 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 06da679524e2407290f72a315d9a8db8
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: TetherSystem
   platform: 19
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/katec/Documents/build_two_crawl/barcrawlies.exe
+  - Assets/Scenes/NineTerrain.unity
+  playerPath: C:/Users/katec/Documents/build_three_crawl/barcrawlies.exe

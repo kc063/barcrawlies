@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using static Unity.VisualScripting.Metadata;
 
 
     public class CharacterControl : MonoBehaviour
@@ -11,18 +12,22 @@ using UnityEngine;
 
         [SerializeField] private Animator m_animator = null;
         [SerializeField] private Rigidbody m_rigidBody;
+        [SerializeField] private TetherSystem tether;
 
         private int color = 0;
         private GameObject spew = null;
+        private Transform t;
         float turnSmoothVelocity;
-        public Transform cam;
 
         private bool m_wasGrounded;
         private Vector3 m_currentDirection = Vector3.zero;
 
         private float m_jumpTimeStamp = 0;
         private float m_minJumpInterval = 0.25f;
+        private float m_tetherTimestamp = 0;
+        private float m_tetherInterval = 0.5f;
         private bool m_jumpInput = false;
+        private bool m_tetherInput = false;
 
         private bool m_isGrounded;
 
@@ -55,7 +60,6 @@ using UnityEngine;
                 Debug.Log("New Player Color,");
                 Debug.Log(c);
                 collision.gameObject.GetComponent<BulbData>().changeColor(color);
-                color = c;
                 Transform[] children = GetComponentsInChildren<Transform>();
                 foreach (Transform child in children)
                 {
@@ -64,10 +68,30 @@ using UnityEngine;
                         Destroy(child.gameObject);
                     }
                 }
-                spew = Instantiate(bc.getPlayerSpew(color), this.transform);
+                spew = Instantiate(bc.getPlayerSpew(c), this.transform);
+                color = c;
+
+            }
+            if (collision.gameObject.CompareTag("freshie"))
+             {
+                Refresh();
+              
             }
     }
 
+        public void Refresh()
+        {
+            color = 0;
+            Transform[] children = GetComponentsInChildren<Transform>();
+
+            foreach (Transform child in children)
+            {
+                if (child.CompareTag("spew"))
+                {
+                    Destroy(child.gameObject);
+                }
+            }
+        }
         private void OnCollisionStay(Collision collision)
         {
             ContactPoint[] contactPoints = collision.contacts;
@@ -109,9 +133,12 @@ using UnityEngine;
 
         private void Update()
         {
-            if (!m_jumpInput && Input.GetKey(KeyCode.Space))
+            if (!m_jumpInput && Input.GetKey(KeyCode.J))
             {
                 m_jumpInput = true;
+            }
+            if (!m_tetherInput && Input.GetKey(KeyCode.Space)) {
+                m_tetherInput = true;
             }
         }
 
@@ -125,6 +152,7 @@ using UnityEngine;
 
             m_wasGrounded = m_isGrounded;
             m_jumpInput = false;
+            m_tetherInput = false;
         }
 
         
@@ -141,7 +169,7 @@ using UnityEngine;
                 transform.Translate(moveAmount);
                 m_animator.SetFloat("MoveSpeed", moveAmount.magnitude);
             }
-
+            Tethering();
             JumpingAndLanding();
         }
 
@@ -165,4 +193,16 @@ using UnityEngine;
                 m_animator.SetTrigger("Jump");
             }
         }
+
+    private void Tethering()
+    {
+        bool tetherTimedownOver = (Time.time - m_tetherTimestamp) >= m_tetherInterval;
+
+        if (tetherTimedownOver && m_isGrounded && m_tetherInput)
+        {
+            m_tetherTimestamp = Time.time;
+            tether.Tether(gameObject);
+        }
+
     }
+}

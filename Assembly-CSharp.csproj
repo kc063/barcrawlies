@@ -59,16 +59,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bulb\BulbController.cs" />
+    <Compile Include="Assets\Scripts\PC\PlayerResetListener.cs" />
     <Compile Include="Assets\Scripts\NPC\WandererControl.cs" />
     <Compile Include="Assets\Scripts\PC\CharacterControl.cs" />
+    <Compile Include="Assets\Scripts\Bulb\BulbResetListener.cs" />
+    <Compile Include="Assets\Scripts\UI\Bob.cs" />
+    <Compile Include="Assets\Scripts\NPC\TutorialListener.cs" />
     <Compile Include="Assets\Scripts\UI\PauseControl.cs" />
+    <Compile Include="Assets\Scripts\ResetManager.cs" />
+    <Compile Include="Assets\Scripts\PC\TetherSystem.cs" />
+    <Compile Include="Assets\Scripts\NPC\TutorialManager.cs" />
     <Compile Include="Assets\Supercyan Character Pack Animal People Sample\Scripts\AccessoryLogic.cs" />
     <Compile Include="Assets\Scripts\Bulb\BulbColor.cs" />
     <Compile Include="Assets\Supercyan Character Pack Animal People Sample\Scripts\FreeCameraLogic.cs" />
     <Compile Include="Assets\Scripts\UI\ShowOnMenu.cs" />
     <Compile Include="Assets\Supercyan Character Pack Animal People Sample\Scripts\AccessoryWearLogic.cs" />
     <Compile Include="Assets\Supercyan Character Pack Animal People Sample\Scripts\DemoFree.cs" />
+    <Compile Include="Assets\Scripts\NPC\BubbleData.cs" />
     <Compile Include="Assets\Scripts\UI\CameraController.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuResetListener.cs" />
     <Compile Include="Assets\Scripts\Bulb\BulbData.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -786,6 +795,9 @@
     </Reference>
     <Reference Include="Cinemachine">
       <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>

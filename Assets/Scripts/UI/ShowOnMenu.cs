@@ -5,5 +5,7 @@ using UnityEngine;
 
 public class ShowOnMenu : MonoBehaviour
 {
-    private bool show = false;
+    public bool show = false;
+
+    public void setShow(bool s) { show = s;}
 }

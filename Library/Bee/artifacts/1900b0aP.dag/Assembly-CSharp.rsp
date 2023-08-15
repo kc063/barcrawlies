@@ -314,6 +314,7 @@
 "Assets/Scripts/Bulb/BulbData.cs"
 "Assets/Scripts/NPC/WandererControl.cs"
 "Assets/Scripts/PC/CharacterControl.cs"
+"Assets/Scripts/PC/TetherSystem.cs"
 "Assets/Scripts/UI/CameraController.cs"
 "Assets/Scripts/UI/PauseControl.cs"
 "Assets/Scripts/UI/ShowOnMenu.cs"
